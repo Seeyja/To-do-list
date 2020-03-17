@@ -1,0 +1,27 @@
+.root__to-do-list-panel{
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.button{
+    width: 140px;
+    padding: 9px;
+    border: 1px solid #ddd;
+    background-color: #1B2740;
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+    letter-spacing: 1px;    
+    text-transform: uppercase;
+    border-radius: 28px;
+    outline: none;
+    cursor: pointer;
+}
+
+.headline{
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ddd;
+    font-size: 30px;
+    text-transform: uppercase;
+}

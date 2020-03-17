@@ -1,0 +1,18 @@
+.tasks{
+    &__item{
+        padding: 5px 0;
+    }
+
+    &__content{
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    &__date{
+        font-size: 12px;
+        color: #31708f;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+}

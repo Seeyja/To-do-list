@@ -1,0 +1,45 @@
+.list-panel{
+    text-align: center;
+    &__headline{
+      
+    }
+
+    &__input-wrapper{
+        position: relative;
+        margin: 20px 0;
+    }
+
+    &__input-label{
+        display: block;
+        margin-bottom: 5px;
+        padding: 5px 0;
+        font-size: 18px;
+    }
+
+    &__input{
+        width: 250px;
+        margin-bottom: 5px;
+        padding: 7px 7px;
+        border: 1px solid #bbb7b7;
+        background-color: #fafafa;
+        font-size: 15px;
+        border-radius: 2px; 
+    }
+
+    &__input:focus{
+        outline: none;
+        border: 1px solid #8e8c8c;
+    }
+
+    &__error{
+        position: absolute;
+        width: 100%;
+        font-size: 14px;
+        color:#a94442;
+        font-weight: bold;
+    }
+
+    &__button{
+        
+    }
+}
