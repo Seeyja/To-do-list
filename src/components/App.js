@@ -74,8 +74,11 @@ class App extends Component {
   handleDoneTasks = (id) => {
     const list = Array.from(this.state.list);
     const doneList = Array.from(this.state.doneList);
+
     const index = list.findIndex(item => item.id === id);
     const doneTask = list.find(item => item.id === id);
+    console.log(doneTask)
+
     doneTask.finished = true;
 
     doneList.push(doneTask);
