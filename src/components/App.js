@@ -45,6 +45,9 @@ class App extends Component {
   }
 
   handleDate = (e) => {
+
+    if (e.target.value < this.currentDate) document.querySelector("input[type=date]").value = `${this.currentDate}`;
+
     this.setState({
       date: e.target.value
     })

@@ -2,6 +2,19 @@ import React from 'react'
 import Element from './Element'
 
 const List = (props) => {
+
+    if (props.list.length >= 2) {
+        props.list.sort((a, b) => {
+            if (a.date > b.date) {
+                return 1
+            }
+            if (a.date < b.date) {
+                return -1
+            }
+            return 0
+        })
+    }
+
     const Elements = props.list.map(element => <Element done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
 
     const ElementsDone = props.doneList.map(element => <Element finished={element.finished} done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
