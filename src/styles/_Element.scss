@@ -1,18 +1,25 @@
 .tasks{
     &__item{
-        padding: 5px 0;
+        padding: 5px 5px;
     }
 
     &__content{
         font-size: 18px;
         font-weight: bold;
         letter-spacing: 1px;
+        word-break: break-word;
     }
     &__date{
+        display: block;
+        padding: 5px;
         font-size: 12px;
         color: #31708f;
         font-weight: bold;
         font-style: italic;
+        @media(min-width:1024px){
+            display: inline;
+            padding: 0px;
+        }  
     }
 
 }

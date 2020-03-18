@@ -1,9 +1,6 @@
 .list-panel{
     text-align: center;
-    &__headline{
-      
-    }
-
+    
     &__input-wrapper{
         position: relative;
         margin: 20px 0;
@@ -37,9 +34,5 @@
         font-size: 14px;
         color:#a94442;
         font-weight: bold;
-    }
-
-    &__button{
-        
     }
 }

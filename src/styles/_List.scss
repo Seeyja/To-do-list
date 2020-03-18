@@ -1,11 +1,16 @@
 .tasks{
     display: flex;
+    flex-wrap: wrap;
     padding-top: 50px;
-    &__wrapper{
-        flex-basis: 50%;
-        border-right: 2px solid #ddd;
+    &__wrapper{ 
+        flex-basis: 100%;
+        border-right: none;    
         text-align: center;
+        @media(min-width:1024px){
+            flex-basis: 50%;
+            border-right: 2px solid #ddd;
         }
+    }
     &__list{
         list-style-type: none;
     }    
@@ -14,21 +19,25 @@
     }
 
     &__delete-task, &__done-task{
-        width: 100px;
+        width: 85px;
+        @media(min-width:1024px){
+            width: 100px;
+        }
     }
 
     &__delete-task
     {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+        color: #a94442;
+        background-color: $delete-button-color;
+        border-color: #ebccd1;
     }
     
-    &__done-task
-    {
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+    &__done-task{
+        color: #3c763d;
+        background-color: $done-button-color;
+        border-color: #d6e9c6;
     }
-    
+        @media(min-width:1024px){
+            flex-wrap: nowrap;
+    }  
 }
