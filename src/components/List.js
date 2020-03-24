@@ -1,5 +1,7 @@
 import React from 'react'
 import Element from './Element'
+import DetailsTaskPage from '../pages/DetailsTaskPage'
+import { Route, Switch } from 'react-router-dom';
 
 const List = (props) => {
 
@@ -14,21 +16,34 @@ const List = (props) => {
             return 0
         })
     }
+    const { list } = props;
 
-    const Elements = props.list.map(element => <Element done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
+    const elements = props.list.map(element => <Element done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
 
-    const ElementsDone = props.doneList.map(element => <Element finished={element.finished} done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
+    const elementsDone = props.doneList.map(element => <Element finished={element.finished} done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
     return (
-        <section className="root__tasks-list tasks">
-            <div className="tasks__wrapper">
-                {Elements.length > 0 && <h2 className="tasks__headline headline">Do zrobienia ({Elements.length})</h2>}
-                <ul className="tasks__list">{Elements}</ul>
-            </div>
-            <div className="tasks__wrapper">
-                {ElementsDone.length > 0 && <h2 className="tasks__headline headline">Zrobione ({ElementsDone.length})</h2>}
-                <ul className="tasks__list">{ElementsDone.length > 0 && ElementsDone}</ul>
-            </div>
-        </section>
+        <>
+            <section className="details">
+                <Switch>
+                    <Route
+                        exact
+                        path="/task/:id"
+                        render={(props) => <DetailsTaskPage {...props} list={list} />}
+                    />
+                </Switch>
+            </section>
+            <section className="root__tasks-list tasks">
+                <div className="tasks__wrapper">
+                    {elements.length > 0 && <h2 className="tasks__headline headline">Do zrobienia ({elements.length})</h2>}
+                    {<ul className="tasks__list">{elements}</ul>}
+
+                </div>
+                <div className="tasks__wrapper">
+                    {elementsDone.length > 0 && <h2 className="tasks__headline headline">Zrobione ({elementsDone.length})</h2>}
+                    <ul className="tasks__list">{elementsDone.length > 0 && elementsDone}</ul>
+                </div>
+            </section>
+        </>
     )
 }
 

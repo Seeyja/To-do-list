@@ -1,6 +1,6 @@
 .list-panel{
     text-align: center;
-    
+
     &__input-wrapper{
         position: relative;
         margin: 20px 0;
@@ -21,11 +21,10 @@
         background-color: #fafafa;
         font-size: 15px;
         border-radius: 2px; 
-    }
-
-    &__input:focus{
-        outline: none;
-        border: 1px solid #8e8c8c;
+        &:focus{
+            outline: none;
+            border: 1px solid #8e8c8c;
+        }
     }
 
     &__error{

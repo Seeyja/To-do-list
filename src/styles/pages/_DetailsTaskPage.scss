@@ -1,0 +1,16 @@
+.details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    &__name{
+        padding: 5px;
+        color: #17a2b8;
+        font-weight: bold;
+    }
+    &__date{
+        padding: 5px;
+        color: #17a2b8;
+        font-weight: bold;
+    }
+}

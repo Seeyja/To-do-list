@@ -16,6 +16,9 @@
     border-radius: 28px;
     outline: none;
     cursor: pointer;
+    &--details{
+        background-color: #6c757d;
+    }
 }
 
 .headline{
@@ -24,4 +27,10 @@
     border-bottom: 2px solid #ddd;
     font-size: 30px;
     text-transform: uppercase;
+    &--details{
+        margin: 0;
+        border-bottom: none;
+        font-size:18px;
+}
+
 }

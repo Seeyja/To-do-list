@@ -1,6 +1,7 @@
-@import 'variables';
-@import 'index';
-@import 'App';
-@import 'AddTask';
-@import 'List';
-@import 'Element';
+@import 'utlils/variables';
+@import 'base/index';
+@import 'pages/App';
+@import 'components/AddTask';
+@import 'components/List';
+@import 'components/Element';
+@import 'pages/DetailsTaskPage'

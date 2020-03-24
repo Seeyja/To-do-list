@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Addtask from './AddTask'
-import List from './List'
-
+import Addtask from '../components/AddTask'
+import List from '../components/List'
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends Component {
 
@@ -93,10 +93,9 @@ class App extends Component {
     })
   }
 
-
   render() {
     return (
-      <>
+      <Router>
         <Addtask
           value={this.state.inputValue}
           getInputValue={this.handleInputValue}
@@ -113,7 +112,7 @@ class App extends Component {
           list={this.state.list}
           date={this.state.date}
         />
-      </ >
+      </Router>
     )
   }
 }
