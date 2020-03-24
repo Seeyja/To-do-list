@@ -8,7 +8,7 @@ Simple task list
 
 * HTML
 * CSS(SCSS) + BEM
-* JS + React
+* JS + React(React Router)
 
 ## Authors
 
