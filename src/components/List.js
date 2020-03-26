@@ -18,9 +18,9 @@ const List = (props) => {
     }
     const { list } = props;
 
-    const elements = props.list.map(element => <Element done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
+    const elements = props.list.map(element => <Element done={props.done} remove={props.remove} key={element.id} date={element.date} id={element.id} text={element.text} />)
 
-    const elementsDone = props.doneList.map(element => <Element finished={element.finished} done={props.done} delete={props.delete} key={element.id} date={element.date} id={element.id} text={element.text} />)
+    const elementsDone = props.doneList.map(element => <Element finished={element.finished} done={props.done} remove={props.remove} key={element.id} date={element.date} id={element.id} text={element.text} />)
     return (
         <>
             <section className="details">

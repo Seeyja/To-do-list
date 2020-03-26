@@ -13,11 +13,25 @@ class App extends Component {
     list: [],
     doneList: [],
     date: this.currentDate,
-    emptyTask: false
+    message: '',
+
+    errors: {
+      epmtyTask: false,
+      existingTask: false
+    }
+
+  }
+
+  messages = {
+    task_empty: 'Wpisz zadanie',
+    task_existing: 'Takie zadanie istnieje',
   }
 
   handleAddTask = () => {
-    if (this.state.inputValue.length > 0) {
+
+    const validation = this.formValidation();
+
+    if (validation.correct) {
       const list = this.state.list;
       list.push({
         id: this.id,
@@ -27,15 +41,52 @@ class App extends Component {
       this.setState({
         list,
         inputValue: "",
-        emptyTask: false,
+        message: 'Zadanie dodane!',
+
+        errors: {
+          epmtyTask: false,
+          existingTask: false
+        }
+
       })
       this.id++;
     } else {
       this.setState({
-        inputValue: "",
-        emptyTask: true,
+        errors: {
+          emptyTask: !validation.task_length,
+          existingTask: !validation.task_unique,
+        }
       })
     }
+  }
+
+  formValidation = () => {
+    let task_length = false;
+    let task_unique = false;
+    let correct = false;
+
+    if (this.state.inputValue.length > 0 && this.state.inputValue.trim().length > 0) {
+      task_length = true;
+    }
+
+    let elements = this.state.list.filter(element => (
+      element.text === this.state.inputValue
+    ))
+
+    if (!elements.length > 0) {
+      task_unique = true;
+    }
+
+    if (task_length && task_unique) {
+      correct = true
+    }
+
+    return ({
+      correct,
+      task_length,
+      task_unique,
+    })
+
   }
 
   handleInputValue = (e) => {
@@ -80,7 +131,6 @@ class App extends Component {
 
     const index = list.findIndex(item => item.id === id);
     const doneTask = list.find(item => item.id === id);
-    console.log(doneTask)
 
     doneTask.finished = true;
 
@@ -93,6 +143,14 @@ class App extends Component {
     })
   }
 
+  componentDidUpdate() {
+    if (this.state.message !== '') {
+      setTimeout(() => this.setState({
+        message: ''
+      }), 2000)
+    }
+  }
+
   render() {
     return (
       <Router>
@@ -103,12 +161,14 @@ class App extends Component {
           date={this.state.date}
           getDate={this.handleDate}
           minDate={this.currentDate}
-          emptyTask={this.state.emptyTask}
+          messages={this.messages}
+          errors={this.state.errors}
+          success={this.state.message}
         />
         <List
           doneList={this.state.doneList}
           done={this.handleDoneTasks}
-          delete={this.handleDeleteTask}
+          remove={this.handleDeleteTask}
           list={this.state.list}
           date={this.state.date}
         />
